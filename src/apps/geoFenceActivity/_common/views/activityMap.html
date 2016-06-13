@@ -1,0 +1,29 @@
+<section id="ssi-activity-map" layout="row" layout-align="stretch" layout-fill>
+    <md-sidenav
+        md-component-id="left"
+        class="md-sidenav-left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+        <md-toolbar md-whiteframe="4">
+            <h1 class="md-headline">GeoActivity Map</h1>
+        </md-toolbar>
+        <md-content flex>
+            <div layout="column">
+                <div flex md-whiteframe="2">
+                    <activity-filters ng-if="activityMap.google"></activity-filters>
+                </div>
+                <div layout-fill flex class="ticker">
+                    <activity-ticker ng-if="activityMap.google"></activity-ticker>
+                </div>
+            </div>
+        </md-content>
+    </md-sidenav>
+    <md-content layout-fill>
+        <google-map
+            ng-if="activityMap.google"
+            stream-type="random"
+            stream-limit="10"
+            marker-type="info">
+        </google-map>
+    </md-content>
+</section>

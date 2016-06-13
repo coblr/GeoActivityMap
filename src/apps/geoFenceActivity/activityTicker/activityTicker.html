@@ -1,0 +1,13 @@
+<ul class="ticks">
+    <li ng-repeat="activation in activityTicker.activations.slice().reverse() | activityFilter">
+        <span class="time">{{::activation.time | date:'HH:mm:ss'}}</span>
+        <h5 class="business">
+            {{::activation.business.name}}
+        </h5>
+        <span class="demographics">
+            {{::activation.demographics.gender}},
+            {{::activation.demographics.age}}
+        </span>
+        <span class="city">{{::activation.city}}, {{::activation.state}}</span>
+    </li>
+</ul>

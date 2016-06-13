@@ -1,0 +1,37 @@
+<div layout-padding>
+    <md-input-container class="md-block">
+        <label>Filter Activities</label>
+        <input
+            type="text"
+            ng-model="activityFilters.filters.keywords"
+        />
+        <small class="md-caption">Ex: "male", "California", "18-24"</small>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Select a City</label>
+        <md-select ng-model="activityFilters.filters.location">
+            <md-option value="">All Cities</md-option>
+            <md-option ng-value="loc.city" ng-repeat="loc in activityFilters.locations">
+                {{loc.city}}, {{loc.state}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Select a Business</label>
+        <md-select ng-model="activityFilters.filters.business">
+            <md-option value="">All Businesses</md-option>
+            <md-option ng-value="business.name" ng-repeat="business in activityFilters.businesses">
+                {{business.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-button
+        id="btn-resetActivityFilters"
+        class="md-primary md-raised"
+        ng-click="activityFilters.resetFilters()">
+        Reset
+    </md-button>
+</div>
